@@ -2,6 +2,7 @@
 <?php
 
 //session_start();
+
 	require("connect_db.php");
 
 $codigo=$_POST['codigo'];
