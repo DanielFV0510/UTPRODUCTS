@@ -1,0 +1,12 @@
+Options All -Indexes
+ErrorDocument 404 /utproducts/index.php
+
+RewriteEngine On
+
+
+#RewriteRule ^.*n([0-9]+)\.php$ product.php?id=$1 [L]
+
+RewriteRule ^.*n([0-9]+)\.php$ product.php?id=$1 [L]
+#ReWriteRule ^act([^/.]+)?$ pagmodificarcliente.php?id=$ [L]
+#ReWriteRule ^p([^/.]+)?$ product.php?id=$ [L]
+#ReWriteRule ^pd([^/.]+)?$ product-detail.php?id=$ [L]
