@@ -406,7 +406,6 @@ if(is_numeric($_GET['id']))
 			require('encdes.php');
 
              $iddes=SED::decryption($_GET['id']);
-            // echo $iddes;
              $result= mysqli_query($mysqli,"select * from lista_usuarios lu inner join lista_productos lp on lu.id=lp.nomproy WHERE lp.id = '$iddes'");
              while ($eventr= mysqli_fetch_array($result)){ ?>
 

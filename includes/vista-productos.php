@@ -6,13 +6,9 @@
                             <div class="block2">
                                 <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
                                     <a href="product-detail.php?id=<?php 
-
-
-
-							$idenc=SED::encryption($productos['id']);
-							echo $idenc;
-
-
+                // echo var_dump($productos);
+							$iddes=SED::encryption($productos['idPro']);
+							echo $iddes;
 
 								?>" class="block2-name dis-block s-text3 p-b-5">
                                         <img src="<?php echo $productos['fotoruta1'] ;?>" alt="IMG-PRODUCT">

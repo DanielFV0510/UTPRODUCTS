@@ -40,7 +40,7 @@ class Productos extends DB{
 
 
     function mostrarProductosxCat($IDcategoria){
-        $query = $this->connect()->prepare("SELECT * FROM lista_productos lp  INNER JOIN categoria cat ON cat.nombcateg=lp.categ1 OR cat.nombcateg=lp.categ2 WHERE cat.id ='$IDcategoria'  LIMIT :pos, :n");    
+        $query = $this->connect()->prepare("SELECT lp.id AS idPro,cat.id AS idCat,fotoruta1,fotoruta2,nombprod,Precio,descripcion,categ1,categ2,codprod,nomproy,LINK FROM lista_productos lp  INNER JOIN categoria cat ON cat.nombcateg=lp.categ1 OR cat.nombcateg=lp.categ2 WHERE cat.id ='$IDcategoria'  LIMIT :pos, :n");    
         $query->execute(['pos' => $this->indice, 'n' => $this->resultadosPorPagina]);
         
         foreach ($query as $productos) {
