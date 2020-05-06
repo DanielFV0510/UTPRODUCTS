@@ -8,31 +8,23 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<?php
-        include_once 'productos.php';
-
-        $productos = new Productos(2,true,1);        
-?>
+    <?php include_once 'productos.php';
+        $productos = new Productos(2,true,1);?>
     <div id="container">
-        <?php
-            echo $productos->mostrarTotalResultados()." resultados totales <br/>";
-        ?>
-        				    TENEMOS  DE <?php echo $productos->mostrarI(); ?> indice<br/>
-							<!-- TENEMOS  DE <?php echo $iddes ?> id<br/> -->
-							TENEMOS  DE <?php echo $productos->mostrarPA(); ?> pag Actual<br/>
-
+        <?php echo $productos->mostrarTotalResultados()." resultados totales <br/>"; ?>
+        TENEMOS DE <?php echo $productos->mostrarI(); ?> indice<br />
+        <!-- TENEMOS  DE <?php echo $iddes ?> id<br/> -->
+        TENEMOS DE <?php echo $productos->mostrarPA(); ?> pag Actual<br />
         <div id="paginas">
             <?php $productos->mostrarPaginas('categoria',1);
             ?>
         </div>
-
         <div id="peliculas">
-        <?php
+            <?php
             $productos->mostrarProductosxCat(1);
         ?>
         </div>
-
     </div>
-    
 </body>
+
 </html>

@@ -77,9 +77,6 @@ if(is_numeric($_GET['id']))
                      echo $event['nomb_proyect'];
 					}
 		            ?>
-
-
-
                     </span>
                     <!-- lista desplegable 
           <div class="topbar-language rs1-select2">
@@ -159,52 +156,55 @@ if(is_numeric($_GET['id']))
 
 ?>
 
-        <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/bannerini/catbanner1.jpeg);">
-            <h2 class="l-text6 t-center">
+    <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
+        style="background-image: url(images/bannerini/catbanner1.jpeg);">
+        <h2 class="l-text6 t-center">
 
-                <?php
+            <?php
 
                      echo $event['nomb_proyect'];
 					
 		            ?>
 
 
-            </h2>
-        </section>
+        </h2>
+    </section>
 
 
-        <!-- Content page -->
-        <section class="bgwhite p-t-55 p-b-65">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-                        <div class="leftbar p-r-20 p-r-0-sm">
-                            <!--  -->
-                            <h4 class="m-text14 p-b-7">
-                                Contactenos
-                            </h4>
+    <!-- Content page -->
+    <section class="bgwhite p-t-55 p-b-65">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+                    <div class="leftbar p-r-20 p-r-0-sm">
+                        <!--  -->
+                        <h4 class="m-text14 p-b-7">
+                            Contactenos
+                        </h4>
 
-                            <ul class="p-b-54">
-                                <li class="p-t-4">
-                                    <a href="https://api.whatsapp.com/send?phone=51<?php echo $event['whatsapp'];?>&text=hola he visto tus productos" class=" flex-c-m size2 bo-rad-23 s-text1 bggreen hov7 trans-0-4">
+                        <ul class="p-b-54">
+                            <li class="p-t-4">
+                                <a href="https://api.whatsapp.com/send?phone=51<?php echo $event['whatsapp'];?>&text=hola he visto tus productos"
+                                    class=" flex-c-m size2 bo-rad-23 s-text1 bggreen hov7 trans-0-4">
                                     WHATSAPP
                                 </a>
-                                </li>
-                            </ul>
+                            </li>
+                        </ul>
 
-                            <ul class="p-b-54">
-                                <li class="p-t-4">
-                                    <a href="tel:<?php echo $event['whatsapp'];?>" class=" flex-c-m size2 bo-rad-23 s-text1 bgblue hov7 trans-0-4">
+                        <ul class="p-b-54">
+                            <li class="p-t-4">
+                                <a href="tel:<?php echo $event['whatsapp'];?>"
+                                    class=" flex-c-m size2 bo-rad-23 s-text1 bgblue hov7 trans-0-4">
                                     LLAMENOS
                                 </a>
-                                </li>
-                            </ul>
+                            </li>
+                        </ul>
 
-                            <h4 class="m-text14 p-b-7">
-                                Ubiquenos
-                            </h4>
+                        <h4 class="m-text14 p-b-7">
+                            Ubiquenos
+                        </h4>
 
-                            <span class="block2-price m-text6 p-r-5">
+                        <span class="block2-price m-text6 p-r-5">
 
                             <?php
 	                    			 		echo $event['direccion'];}
@@ -212,7 +212,7 @@ if(is_numeric($_GET['id']))
                         </span>
 
 
-                            <!--
+                        <!--
 					 
 						<h4 class="m-text14 p-b-32">
 							Filters
@@ -292,15 +292,15 @@ if(is_numeric($_GET['id']))
 							</button>
 						</div>
 						-->
-                        </div>
-
                     </div>
 
-                    <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-                        <!--  -->
-                        <div class="flex-sb-m flex-w p-b-35">
-                            <div class="flex-w">
-                                <!-- 
+                </div>
+
+                <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+                    <!--  -->
+                    <div class="flex-sb-m flex-w p-b-35">
+                        <div class="flex-w">
+                            <!-- 
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
 								<select class="selection-2" name="sorting">
 									<option>Default Sorting</option>
@@ -322,45 +322,45 @@ if(is_numeric($_GET['id']))
 								</select>
 							</div>
 						-->
-                            </div>
-                            <!-- 
+                        </div>
+                        <!-- 
 						<span class="s-text8 p-t-5 p-b-5">
 							Showing 1–12 of 16 results
 						</span>
 						-->
-                        </div>
-                        <span class="s-text8 p-t-5 p-b-5">
+                    </div>
+                    <span class="s-text8 p-t-5 p-b-5">
 
                         <?php include_once 'includes/productos.php';
 						//Cantidad de productos/ activar filtro por categoria/ id de la categoria
 						$productos = new Productos(15,'tienda',$iddes);	?>
                         TENEMOS UN TOTAL DE <?php echo $productos->mostrarTotalResultados(); ?> PRODUCTOS <br />
 
-					</span>
-                        <!-- Product -->
-                        <div class="row">
-                            <?php $productos->mostrarProductosxTienda($iddes)	?>
+                    </span>
+                    <!-- Product -->
+                    <div class="row">
+                        <?php $productos->mostrarProductosxTienda($iddes)	?>
 
-                            <!-- Pagination 
+                        <!-- Pagination 
 										<div class="pagination flex-m flex-w p-t-26">
 											<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
 											<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
 										</div>
 										 -->
-                        </div>
-                        <div class="pagination flex-m flex-w p-t-26">
-                            <?php $productos->mostrarPaginas('tienda',$id);	?>
-                        </div>
                     </div>
-
-
-
+                    <div class="pagination flex-m flex-w p-t-26">
+                        <?php $productos->mostrarPaginas('tienda',$id);	?>
+                    </div>
                 </div>
+
+
+
             </div>
-        </section>
+        </div>
+    </section>
 
 
-        <!--
+    <!--
 	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
 		<div class="flex-w p-b-90">
 			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
@@ -530,90 +530,90 @@ if(is_numeric($_GET['id']))
 -->
 
 
-        <!-- Back to top -->
-        <div class="btn-back-to-top bg0-hov" id="myBtn">
-            <span class="symbol-btn-back-to-top">
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
             <i class="fa fa-angle-double-up" aria-hidden="true"></i>
         </span>
-        </div>
+    </div>
 
-        <!-- Container Selection -->
-        <div id="dropDownSelect1"></div>
-        <div id="dropDownSelect2"></div>
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
 
 
 
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-        <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-        <script type="text/javascript">
-            $(".selection-1").select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $('#dropDownSelect1')
-            });
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+    <script type="text/javascript">
+    $(".selection-1").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
 
-            $(".selection-2").select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $('#dropDownSelect2')
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
-        <script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
-        <script type="text/javascript" src="js/slick-custom.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
-        <script type="text/javascript">
-            $('.block2-btn-addcart').each(function() {
-                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-                $(this).on('click', function() {
-                    swal(nameProduct, "is added to cart !", "success");
-                });
-            });
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect2')
+    });
+    </script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+    $('.block2-btn-addcart').each(function() {
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function() {
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
 
-            $('.block2-btn-addwishlist').each(function() {
-                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-                $(this).on('click', function() {
-                    swal(nameProduct, "is added to wishlist !", "success");
-                });
-            });
-        </script>
+    $('.block2-btn-addwishlist').each(function() {
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function() {
+            swal(nameProduct, "is added to wishlist !", "success");
+        });
+    });
+    </script>
 
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
-        <script type="text/javascript">
-            /*[ No ui ]
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
+    <script type="text/javascript">
+    /*[ No ui ]
                         	    ===========================================================*/
-            var filterBar = document.getElementById('filter-bar');
+    var filterBar = document.getElementById('filter-bar');
 
-            noUiSlider.create(filterBar, {
-                start: [50, 200],
-                connect: true,
-                range: {
-                    'min': 50,
-                    'max': 200
-                }
-            });
+    noUiSlider.create(filterBar, {
+        start: [50, 200],
+        connect: true,
+        range: {
+            'min': 50,
+            'max': 200
+        }
+    });
 
-            var skipValues = [
-                document.getElementById('value-lower'),
-                document.getElementById('value-upper')
-            ];
+    var skipValues = [
+        document.getElementById('value-lower'),
+        document.getElementById('value-upper')
+    ];
 
-            filterBar.noUiSlider.on('update', function(values, handle) {
-                skipValues[handle].innerHTML = Math.round(values[handle]);
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="js/main.js"></script>
+    filterBar.noUiSlider.on('update', function(values, handle) {
+        skipValues[handle].innerHTML = Math.round(values[handle]);
+    });
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 
 </body>
 
