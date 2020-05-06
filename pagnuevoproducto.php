@@ -128,7 +128,7 @@
 
 							NOMBRE DEL PRODUCTO
 						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" required id="nombprod"  name="nombprod" placeholder="Nombre del Producto (MAX: MAX 50 CARACTERES)" maxlength="50" onpaste="return false" onkeypress="return lyn(event)" >
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" required id="nombprod"  name="nombprod" placeholder="Nombre del Producto (MAX: 50 CARACTERES)" maxlength="50" onpaste="return false" onkeypress="return lyn(event)" >
 						</div>
 
 							PRECIO
@@ -169,6 +169,20 @@
 			 				</select>
 						</div>
 
+							ESTADO
+									
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" required name="estado" id="estado">
+								<?php 
+									require('connect_db.php');
+									$query = "select * from condicion ";
+									$result= mysqli_query($mysqli,"select * from condicion");
+									while ($event= mysqli_fetch_array($result)){ ?>
+
+								<option><?php echo $event['condicion']; }?></option>								
+			 				</select>
+						</div>
+
 
 
 							CODIGO PRODUCTO
@@ -179,7 +193,7 @@
 
 							CODIGO 360°
 						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="f360"  name="f360" placeholder="Codigo foto 360 (no obligatorio)" maxlength="25" onpaste="return false" onkeypress="return lyn(event)">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="f360"  name="f360" placeholder="Codigo proporcionado por CLUSTORE dependiendo del paquete contratado" maxlength="25" onpaste="return false" onkeypress="return lyn(event)">
 						</div>
 
 
@@ -214,6 +228,15 @@
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
 
 </body>
 </html>

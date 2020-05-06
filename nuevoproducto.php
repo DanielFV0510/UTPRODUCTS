@@ -57,6 +57,7 @@
  	$descripcion=$_POST['descripcion'];
  	$categ1=$_POST['categ1'];
  	$categ2=$_POST['categ2'];
+ 	$estado=$_POST['estado'];
  	$codprod=$_POST['codprod'];
  	$f360=$_POST['f360'];
 
@@ -71,6 +72,7 @@
 			 descripcion,
 			 categ1,
 			 categ2,
+			 estado,
 			 codprod,
 			 nomproy,
 			 LINK
@@ -83,6 +85,7 @@
 			'".$descripcion."',
 			'".$categ1."',
 			'".$categ2."',
+			'".$estado."',
 			'".$codprod."',
 			'".$_SESSION['id']."',
 			'".$f360."'

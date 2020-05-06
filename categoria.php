@@ -389,7 +389,7 @@ if(is_numeric($_GET['id']))
                                 </div>
 
                                 <div class="s-text3 p-t-10 p-b-10">
-                                    Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+                                    Rango: S/.<span id="value-lower">610</span> - S/.<span id="value-upper">980</span>
                                 </div>
                             </div>
                         </div>

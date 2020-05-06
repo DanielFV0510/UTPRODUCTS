@@ -101,7 +101,7 @@
 
       <div class="wrap_header">
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
           <img src="images/icons/logo.png" alt="IMG-LOGO">
         </a>
 
@@ -297,7 +297,7 @@
     </div>
   </header>
 
-
+<?php require('encdes.php'); ?>
 
   <!-- Cart -->
   <section class="cart bgwhite p-t-70 p-b-100">
@@ -307,15 +307,18 @@
         <div class="wrap-table-shopping-cart bgwhite">
           <table class="table-shopping-cart">
             <tr class="table-head">
-              <th >Foto 1</th>
-              <th >Foto 2</th>
+              <th class="column-5">Foto 1</th>
+              <th class="column-5">Foto 2</th>
               <th class="column-5">Nombre Producto</th>
               <th class="column-5">Precio</th>
               <th class="column-5">Descripcion</th>
               <th class="column-6">Categorias</th>
+              <th class="column-6">Condición</th>
               <th class="column-6">Cod. Producto</th>
               <th class="column-6">360°</th>
-              <th class="column-7">Eliminar</th>
+              <th class="column-6">Ver</th>
+              <th class="column-6">Editar</th>
+              <th class="column-6">Eliminar</th>
             </tr>
 
               <?php
@@ -328,57 +331,27 @@
             <tr class="table-row">
                   <td class="column-1">
                     <div class="cart-img-client b-rad-4 o-f-hidden">
-
-                    <img src="<?php echo $event['fotoruta1'] ;?>" alt="IMG-PRODUCT">
-
-
+                      <img src="<?php echo $event['fotoruta1'] ;?>" alt="IMG-PRODUCT">
                     </div>
                   </td>
 
-
-            
                   <td class="column-1">
                     <div class="cart-img-client b-rad-4 o-f-hidden">
-
-                      <?php
-if (empty($event['fotoruta2'])) {?>
- <img src="images/defaultimage.jpg" alt="IMG-LOGO">
-<?php
-}else{
-
-?>
-
-<img src="<?php echo $event['fotoruta2'] ;?>" alt="IMG-PRODUCT">
-
-
-
-<?php }
-
-?>
-
+                      <img src="<?php echo $event['fotoruta2'] ;?>" alt="IMG-PRODUCT">
                     </div>
                   </td>
 
-
-
-                  <td class="column-5">
-                     <?php
-                     echo $event['nombprod'];
-                      ?>
+                  <td class="column-1 ">
+                     <?php echo $event['nombprod']; ?>
                   </td>
 
                   <td class="column-1">
-                    S/.
-                     <?php
-                     echo $event['Precio'];
-                      ?>
+                    S/. <?php echo $event['Precio']; ?>
                   </td>
 
 
                   <td class="column-1">
-                     <?php
-                     echo $event['descripcion'];
-                      ?>
+                     <?php echo $event['descripcion']; ?>
                   </td>
 
                   <td class="column-1">
@@ -390,31 +363,42 @@ if (empty($event['fotoruta2'])) {?>
                   </td>
 
                   <td class="column-1">
-                     <?php
-                     echo $event['codprod'];
-                      ?>
+                     <?php echo $event['estado']; ?>
+                  </td>
+
+
+                  <td class="column-1">
+                     <?php echo $event['codprod']; ?>
                   </td>
 
                   <td class="column-1">
                      <?php
-					if (empty($event['LINK'])) {
-						echo "NO";
-					}else{
-						echo "SI";
-					}
+              					if (empty($event['LINK'])) {
+                    						echo "NO";
+                    					}else{
+                    						echo "SI";
+                  					}
                      ?>
                   </td>
 
+                  <td class="column-1">
+                    <a class="button9" href="product-detail.php?id=<?php
+                        $idenc=SED::encryption($event['id']);
+                        echo $idenc;
+                        ?>">
+                    </a>
+                  </td>
 
-                  <td class="column-7">
+                  <td class="column-1">
+                    <a class="button1" href="pagmodificarproduct.php<?php echo "?id=" .$event['id'] ?>"></a>
+                  </td>
+
+                  <td class="column-1">
                     <a class="button2" href="pageliminarproducto.php<?php echo "?id=" .$event['id'] ?>"></a>
                   </td>
-                  <?php
-            
-                 echo "</tr>";
-             }
-             ?>
 
+            </tr>
+                  <?php } ?>
           </table>
         </div>
       </div>
