@@ -22,23 +22,17 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
-
     <?php 
-
             require('connect_db.php');
              $queru = "select * from lista_usuarios ";
              $queryp = "select * from lista_productos ";
-
 if(is_numeric($_GET['id']))
-
 {
 	header("Location: index.php");
 }
 ?>
 </head>
-
 <body class="animsition">
-
     <!-- Header -->
     <header class="header1">
         <!-- Header desktop -->
@@ -51,23 +45,17 @@ if(is_numeric($_GET['id']))
                     <!-- <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a> -->
                     <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
                 </div>
-
                 <span class="topbar-child1">
                 </span>
-
                 <div class="topbar-child2">
                     <span class="topbar-email">
-
                         <?php
-
-
             require('connect_db.php');
              $queru = "select * from lista_usuarios ";
              $queryp = "select * from lista_productos ";
 ?>
                         <?php
 			require('encdes.php');
-
              $iddes=SED::decryption($_GET['id']);
              $id=$_GET['id'];
 ?>
@@ -88,13 +76,11 @@ if(is_numeric($_GET['id']))
           -->
                 </div>
             </div>
-
             <div class="wrap_header">
                 <!-- Logo -->
                 <a href="index.php" class="logo">
                     <img src="images/icons/logo.png" alt="IMG-LOGO">
                 </a>
-
                 <!-- Menu -->
                 <div class="wrap_menu">
                     <nav class="menu">
@@ -137,40 +123,24 @@ if(is_numeric($_GET['id']))
                 <!-- Header Icon -->
                 <div class="header-icons">
                 </div>
-
     </header>
-
     <!-- Title Page -->
-
     <?php
-
-
             require('connect_db.php');
              $queru = "select * from lista_usuarios ";
              $queryp = "select * from lista_productos ";
-
              
-
              $result= mysqli_query($mysqli,"select * from lista_usuarios WHERE id = '$iddes'");
              while ($event= mysqli_fetch_array($result)){
-
 ?>
-
     <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
         style="background-image: url(images/bannerini/catbanner1.jpeg);">
         <h2 class="l-text6 t-center">
-
             <?php
-
-                     echo $event['nomb_proyect'];
-					
+                     echo $event['nomb_proyect'];				
 		            ?>
-
-
         </h2>
     </section>
-
-
     <!-- Content page -->
     <section class="bgwhite p-t-55 p-b-65">
         <div class="container">
@@ -181,7 +151,6 @@ if(is_numeric($_GET['id']))
                         <h4 class="m-text14 p-b-7">
                             Contactenos
                         </h4>
-
                         <ul class="p-b-54">
                             <li class="p-t-4">
                                 <a href="https://api.whatsapp.com/send?phone=51<?php echo $event['whatsapp'];?>&text=hola he visto tus productos"
@@ -190,7 +159,6 @@ if(is_numeric($_GET['id']))
                                 </a>
                             </li>
                         </ul>
-
                         <ul class="p-b-54">
                             <li class="p-t-4">
                                 <a href="tel:<?php echo $event['whatsapp'];?>"
@@ -199,59 +167,47 @@ if(is_numeric($_GET['id']))
                                 </a>
                             </li>
                         </ul>
-
                         <h4 class="m-text14 p-b-7">
                             Ubiquenos
                         </h4>
-
                         <span class="block2-price m-text6 p-r-5">
-
                             <?php
 	                    			 		echo $event['direccion'];}
 	                      				?>
                         </span>
-
-
                         <!--
 					 
 						<h4 class="m-text14 p-b-32">
 							Filters
 						</h4>
-
 						<div class="filter-price p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-17">
 								Price
 							</div>
-
 							<div class="wra-filter-bar">
 								<div id="filter-bar"></div>
 							</div>
-
 							<div class="flex-sb-m flex-w p-t-16">
 								<div class="w-size11">
 									<!-- Button
-									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14trans-0-4">
 										Filter
 									</button>
 								</div>
-
 								<div class="s-text3 p-t-10 p-b-10">
 									Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
 								</div>
 							</div>
 						</div>
-
 						<div class="filter-color p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-12">
 								Color
 							</div>
-
 							<ul class="flex-w">
 								<li class="m-r-10">
 									<input class="checkbox-color-filter" id="color-filter1" type="checkbox" name="color-filter1">
 									<label class="color-filter color-filter1" for="color-filter1"></label>
 								</li>
-
 								<li class="m-r-10">
 									<input class="checkbox-color-filter" id="color-filter2" type="checkbox" name="color-filter2">
 									<label class="color-filter color-filter2" for="color-filter2"></label>
@@ -293,9 +249,7 @@ if(is_numeric($_GET['id']))
 						</div>
 						-->
                     </div>
-
                 </div>
-
                 <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
                     <!--  -->
                     <div class="flex-sb-m flex-w p-b-35">
@@ -309,7 +263,6 @@ if(is_numeric($_GET['id']))
 									<option>Price: high to low</option>
 								</select>
 							</div>
-
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
 								<select class="selection-2" name="sorting">
 									<option>Price</option>
@@ -318,29 +271,25 @@ if(is_numeric($_GET['id']))
 									<option>$100.00 - $150.00</option>
 									<option>$150.00 - $200.00</option>
 									<option>$200.00+</option>
-
 								</select>
 							</div>
 						-->
-                            </div>
-                            <!-- 
+                        </div>
+                        <!-- 
 						<span class="s-text8 p-t-5 p-b-5">
 							Showing 1–12 of 16 results
 						</span>
 						-->
                     </div>
                     <span class="s-text8 p-t-5 p-b-5">
-
                         <?php include_once 'includes/productos.php';
 						//Cantidad de productos/ activar filtro por categoria/ id de la categoria
 						$productos = new Productos(15,'tienda',$iddes);	?>
                         TENEMOS UN TOTAL DE <?php echo $productos->mostrarTotalResultados(); ?> PRODUCTOS <br />
-
                     </span>
                     <!-- Product -->
                     <div class="row">
                         <?php $productos->mostrarProductosxTienda($iddes)	?>
-
                         <!-- Pagination 
 										<div class="pagination flex-m flex-w p-t-26">
 											<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
@@ -352,14 +301,9 @@ if(is_numeric($_GET['id']))
                         <?php $productos->mostrarPaginas('tienda',$id);	?>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </section>
-
-
     <!--
 	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
 		<div class="flex-w p-b-90">
@@ -367,12 +311,10 @@ if(is_numeric($_GET['id']))
 				<h4 class="s-text12 p-b-30">
 					GET IN TOUCH
 				</h4>
-
 				<div>
 					<p class="s-text7 w-size27">
 						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
 					</p>
-
 					<div class="flex-m p-t-30">
 						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
 						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
@@ -382,31 +324,26 @@ if(is_numeric($_GET['id']))
 					</div>
 				</div>
 			</div>
-
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
 					Categories
 				</h4>
-
 				<ul>
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							Men
 						</a>
 					</li>
-
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							Women
 						</a>
 					</li>
-
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							Dresses
 						</a>
 					</li>
-
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							Sunglasses
@@ -414,7 +351,6 @@ if(is_numeric($_GET['id']))
 					</li>
 				</ul>
 			</div>
-
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
 					Links
@@ -528,21 +464,15 @@ if(is_numeric($_GET['id']))
 		</div>
 	</footer>
 -->
-
-
     <!-- Back to top -->
     <div class="btn-back-to-top bg0-hov" id="myBtn">
         <span class="symbol-btn-back-to-top">
             <i class="fa fa-angle-double-up" aria-hidden="true"></i>
         </span>
     </div>
-
     <!-- Container Selection -->
     <div id="dropDownSelect1"></div>
     <div id="dropDownSelect2"></div>
-
-
-
     <!--===============================================================================================-->
     <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
