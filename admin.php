@@ -83,7 +83,7 @@ if($_SESSION['Tipo_usuario']=='Cliente')
 
         <div class="topbar-child2">
           <span class="topbar-email">
-            UTP - CHICLAYO
+            CLUSTORE
           </span>
           <!-- lista desplegable 
           <div class="topbar-language rs1-select2">
@@ -237,7 +237,7 @@ if($_SESSION['Tipo_usuario']=='Cliente')
           <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
             <div class="topbar-child2-mobile">
               <span class="topbar-email">
-                UTP - CHICLAYO
+                CLUSTORE
               </span>
 
               <div class="topbar-language rs1-select2">
@@ -305,14 +305,24 @@ if($_SESSION['Tipo_usuario']=='Cliente')
         <div class="wrap-table-shopping-cart bgwhite">
           <table class="table-shopping-cart">
             <tr class="table-head">
-              <th class="column-1">Logo</th>
-              <th class="column-2">Nombres y Apellidos</th>
-              <th class="column-3">Codigo</th>
-              <th class="column-3">Contraseña</th>
-              <th class="column-5">Proyecto</th>
+              <th class="column-1">Logo Empresa</th>
+              <th class="column-5">Nombre empresa</th>
               <th class="column-5">Descripcion</th>
-              <th class="column-5">Whatsapp</th>
-              <th class="column-6"></th>
+              <th class="column-5">RUC empresa</th>
+              <th class="column-5">whatsapp empresa</th>
+              <th class="column-5">Direccion empresa</th>
+
+              <th class="column-2">Nombre del Responsable</th>
+              <th class="column-2">DNI</th>
+              <th class="column-2">telefono</th>
+
+              <th class="column-3">Usuario</th>
+              <th class="column-3">Contraseña</th>
+              
+              <th class="column-5">Tipo de Paquete</th>
+              <th class="column-6">Fecha de Inscripcion</th>
+              <th class="column-6">Condicion</th>
+              <th class="column-7"></th>
               <th class="column-7"></th>
             </tr>
 
@@ -334,28 +344,60 @@ if($_SESSION['Tipo_usuario']=='Cliente')
             
                   <td class="column-2">
 
-                    <?php echo $event['NomDoc']; ?>
+                    <?php echo $event['nomb_proyect']; ?>
 
                   </td>
 
                   <td class="column-3">
-                     <?php echo $event['CodigoDoc']; ?>
+                     <?php echo $event['descripcion']; ?>
                   </td>
 
                   <td class="column-3">
-                     <?php echo $event['Contrasenia']; ?>
-                  </td>
-
-                  <td class="column-5">
-                      <?php echo $event['nomb_proyect']; ?>
-                  </td>
-
-                  <td class="column-5">
-                      <?php echo $event['descripcion']; ?>
+                     <?php echo $event['ruc']; ?>
                   </td>
 
                   <td class="column-5">
                       <?php echo $event['whatsapp']; ?>
+                  </td>
+
+                  <td class="column-5">
+                      <?php echo $event['direccion']; ?>
+                  </td>
+
+
+
+                  <td class="column-5">
+                      <?php echo $event['NomDoc']; ?>
+                  </td>
+
+                  <td class="column-5">
+                      <?php echo $event['dni']; ?>
+                  </td>
+                  
+                  <td class="column-5">
+                      <?php echo $event['telefresp']; ?>
+                  </td>
+
+
+
+                  <td class="column-5">
+                      <?php echo $event['CodigoDoc']; ?>
+                  </td>
+
+                  <td class="column-5">
+                      <?php echo $event['Contrasenia']; ?>
+                  </td>
+                  
+                  <td class="column-5">
+                      <?php echo $event['tipopack']; ?>
+                  </td>
+
+                  <td class="column-5">
+                      <?php echo $event['fechinscrip']; ?>
+                  </td>
+
+                  <td class="column-5">
+                      <?php echo $event['condicion']; ?>
                   </td>
 
                   <td class="column-6">
