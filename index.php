@@ -222,7 +222,7 @@
     require('connect_db.php');
     
      $query = "select * from lista_usuarios ";
-     $result= mysqli_query($mysqli,"select * from lista_usuarios WHERE Tipo_Usuario='Cliente' ");
+     $result= mysqli_query($mysqli,"select * from lista_usuarios WHERE Tipo_Usuario='Cliente' and condicion='Activo' ");
      while ($event= mysqli_fetch_array($result)){ ?>
                 <div class="item-slick1 item1-slick1" style="background-image: url(images/bannerini/banner1.jpg);">
                     <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
@@ -403,7 +403,7 @@
 					require('connect_db.php');
 					$query = "select * from lista_productos ";
 					//$result= mysqli_query($mysqli,"select * from lista_productos");
-										$result= mysqli_query($mysqli,"select * from lista_usuarios lu inner join lista_productos lp on lu.id=lp.nomproy ");
+										$result= mysqli_query($mysqli,"select * from lista_usuarios lu inner join lista_productos lp on lu.id=lp.nomproy WHERE condicion='Activo' ");
 					while ($event= mysqli_fetch_array($result)){ ?>
                     <div class="item-slick2 p-l-15 p-r-15">
                         <!-- Block2 -->
@@ -563,7 +563,7 @@
             <?php
     			require('connect_db.php');
          		$query = "select * from lista_usuarios ";
-     			$result= mysqli_query($mysqli,"select * from lista_usuarios WHERE Tipo_Usuario='Cliente' ");
+     			$result= mysqli_query($mysqli,"select * from lista_usuarios WHERE Tipo_Usuario='Cliente' and condicion='Activo' ");
      			while ($event= mysqli_fetch_array($result)){ ?>
             <div class="block4 wrap-pic-w">
                 <img width="720" height="240" src="data:image/jpg;base64,<?php echo base64_encode($event['logo']) ?>"
