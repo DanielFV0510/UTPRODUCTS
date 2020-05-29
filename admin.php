@@ -310,6 +310,7 @@ if($_SESSION['Tipo_usuario']=='Cliente')
               <th class="column-5">Descripcion</th>
               <th class="column-5">RUC empresa</th>
               <th class="column-5">whatsapp empresa</th>
+              <th class="column-5">Direccion empresa</th>
 
               <th class="column-2">Nombre del Responsable</th>
               <th class="column-2">DNI</th>
@@ -359,6 +360,9 @@ if($_SESSION['Tipo_usuario']=='Cliente')
                       <?php echo $event['whatsapp']; ?>
                   </td>
 
+                  <td class="column-5">
+                      <?php echo $event['direccion']; ?>
+                  </td>
 
 
 

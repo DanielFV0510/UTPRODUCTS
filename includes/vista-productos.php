@@ -15,6 +15,7 @@
             <span class="block2-price m-text6 p-r-5">
                 S/.<?php echo $productos['Precio']; ?>
             </span>
+            
         </div>
     </div>
 </div>

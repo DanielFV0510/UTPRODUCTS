@@ -3,18 +3,27 @@
 <?php
 
  nuevousuario(
- 	$_POST['codigo'],
- 	$_POST['nomapecomp'],
- 	$_POST['contrasenia'],
- 	$_POST['nomb_proyect'],
- 	$_POST['whatsapp'],
- 	addslashes(file_get_contents($_FILES['logo']['tmp_name'])),
- 	$_POST['descripcion']
+	addslashes(file_get_contents($_FILES['logo']['tmp_name'])),
+	 	$_POST['nomb_proyect'],
+		$_POST['descripcion'],
+		$_POST['direccion'],
+		$_POST['ruc'],
+		$_POST['whatsapp'],
+		$_POST['nomapecomp'],
+		$_POST['dni'],
+		$_POST['telfcont'],
+		$_POST['codigo'],
+		$_POST['contrasenia'],
+		$_POST['paquete'],
+		$_POST['condicion']
+	 
+ 	
  );
  
 
+ function nuevousuario($logo,$nomb_proyect,$descripcion,$direccion,$ruc,$whatsapp,$nomapecomp,$dni,$telfcont,$codigo,$contrasenia,$paquete,$condicion)
 
- function nuevousuario($codigo,$nomapecomp,$contrasenia,$nomb_proyect,$whatsapp,$logo,$descripcion)
+ //function nuevousuario($codigo,$nomapecomp,$contrasenia,$nomb_proyect,$whatsapp,$logo,$descripcion)
  {
 
 	include 'connect_db.php';
@@ -39,14 +48,20 @@ window.location.href='pagnuevocliente.php';
 	 $sentencia= 
 	 "INSERT INTO lista_usuarios(
 
-			 CodigoDoc,
+			 CodigoDoc, 
 			 NomDoc,
 			 Contrasenia,
 			 Tipo_usuario,
 			 nomb_proyect,
 			 whatsapp,
 			 logo,
-			 descripcion
+			 descripcion,
+			 direccion,
+			 ruc,
+			 dni,
+			 telefresp,
+			 tipopack,
+			 condicion 
 		) VALUES (
 
 			'".$codigo."',
@@ -56,7 +71,13 @@ window.location.href='pagnuevocliente.php';
 			'".$nomb_proyect."',
 			'".$whatsapp."',
 			'$logo',
-			'".$descripcion."'
+			'".$descripcion."',
+			'".$direccion."',
+			'".$ruc."',
+			'".$dni."',
+			'".$telfcont."',
+			'".$paquete."',
+			'".$condicion."'
 	)";
 	 $mysqli->query($sentencia)or die("Error Inesperado ".mysqli_error($mysqli));
 
