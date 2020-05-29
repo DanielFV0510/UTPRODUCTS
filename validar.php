@@ -7,7 +7,7 @@
 $codigo=$_POST['codigo'];
 $password=$_POST['password'];
 
-	$sql=mysqli_query($mysqli,"SELECT * FROM lista_usuarios WHERE CodigoDoc='$codigo' and Contrasenia='$password'");
+	$sql=mysqli_query($mysqli,"SELECT * FROM lista_usuarios WHERE CodigoDoc='$codigo'  and Contrasenia='$password'");
 	
 
 	if($f=mysqli_fetch_array($sql)){
@@ -16,6 +16,7 @@ $password=$_POST['password'];
 			$_SESSION['nombre']=$f['NomDoc'];
 			$_SESSION['Tipo_usuario']=$f['Tipo_usuario'];
 			$_SESSION['nomb_proyect']=$f['nomb_proyect'];
+			$_SESSION['condicion']=$f['condicion'];
 			//echo $_SESSION['Tipo_usuario'];
 			//header("Location: paginaprincipaladmin.php");
 			
@@ -23,18 +24,19 @@ $password=$_POST['password'];
 			session_start();
 			header("Location: admin.php");
 		} else {
-			if($_SESSION['Tipo_usuario']=='Secretario'){
-				session_start();
-				header("Location: secret.php");
-			} else {
-				if($_SESSION['Tipo_usuario']=='Cliente'){
+
+				if($_SESSION['Tipo_usuario']=='Cliente' and $_SESSION['condicion']=='Activo' ){
+
 					session_start();
 					header("Location: client.php");
+
 				} else {
-					echo '<script>alert("Usuario Restringido")</script> ';
+
+					echo '<script>alert("Su suscripcion a caducado")</script> ';
 					echo "<script>location.href='acceso.php'</script>";
+
 				}	
-			}
+			
 		}
 			
 	} else {
