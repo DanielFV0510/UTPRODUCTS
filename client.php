@@ -19,6 +19,7 @@
   <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -304,7 +305,7 @@
     <div class="container">
       <!-- Cart item -->
       <div class="container-table-cart pos-relative">
-        <div class="wrap-table-shopping-cart bgwhite">
+        <div class="wrap-table-shopping-cart bgwhite" id="tb_productos">
           <table class="table-shopping-cart">
             <tr class="table-head">
               <th class="column-5">Foto 1</th>
@@ -382,7 +383,7 @@
                   </td>
 
                   <td class="column-1">
-                    <a class="button9" href="product-detail.php?id=<?php
+                    <a class="button9"  href="product-detail.php?id=<?php
                         $idenc=SED::encryption($event['id']);
                         echo $idenc;
                         ?>">
@@ -390,7 +391,7 @@
                   </td>
 
                   <td class="column-1">
-                    <a class="button1" href="pagmodificarproduct.php<?php echo "?id=" .$event['id'] ?>"></a>
+                    <a class="button1" data-toggle="modal" data-id="<?=$event['id']?>" data-target="#exampleModal" href="pagmodificarproduct.php<?php echo "?id=" .$event['id'] ?>"></a>
                   </td>
 
                   <td class="column-1">
@@ -402,20 +403,140 @@
           </table>
         </div>
       </div>
+      
+					<?php	include_once 'includes/productos.php';
+							$productos = new Productos(null,null,null);	
+              $limiteAlcanzado=$productos->verificarLimite();
+              if($limiteAlcanzado===false){
+          ?>        
         <div class="size10 trans-0-4 m-t-10 m-b-10">
           <!-- Button -->
           <a class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" href="pagnuevoproducto.php">
             Nuevo Producto
           </a>
         </div>
+              <?php }else{?>
+                <p class="text-danger">Alcanzaste el límite del cantidad de productos de tu paquete</p>
+          <div class="size10 trans-0-4 m-t-10 m-b-10">
+          <!-- Button -->
+          <p class="flex-c-m sizefull bg1 bo-rad-23 hv  s-text1" disabled>
+            Nuevo Producto
+              </p>
+        </div>
+        <?php };?>
       </div>
       </div>
     </div>
+    <div>
+
   </section>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modificar producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+      <div class="modal-body">
+        <form id="formActualizarProduct" name="formActualizarProduct">
+          <!-- <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div> -->
+          NOMBRE DEL PRODUCTO
+						<div class="bo4 of-hidden size15 m-b-20">
+              <input type="hidden" id="idproduct" name="idproduct">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text"  id="nombprod"  name="nombprod" placeholder="Nombre del Producto (MAX: 50 CARACTERES)" maxlength="50" required >
+						</div>
+							PRECIO
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="Precio" required  name="Precio" placeholder="Precio (ejm: 1.50 25.00)" maxlength="8" onpaste="return false" >
+						</div>
+							DESCRIPCION DEL PRODUCTO
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" required id="descripcion"  name="descripcion" placeholder="Descripcion del proyecto (MAX:190 caracteres)" maxlength="190" onpaste="return false" onkeypress="return numerosyletras(event)"></textarea>
+							CATEGORIA 1								
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" required name="categ1" id="categ1">
+								<?php 
+									require('connect_db.php');
+									$query = "select * from categoria ";
+									$result= mysqli_query($mysqli,"select * from categoria");
+									while ($event= mysqli_fetch_array($result)){ ?>
 
+								<option><?php echo $event['nombcateg']; }?></option>								
+			 				</select>
+						</div>
+							CATEGORIA 2								
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" required name="categ2" id="categ2">
+								<?php 
+									require('connect_db.php');
+									$query = "select * from categoria ";
+									$result= mysqli_query($mysqli,"select * from categoria");
+									while ($event= mysqli_fetch_array($result)){ ?>
 
+								<option><?php echo $event['nombcateg']; }?></option>								
+			 				</select>
+						</div>
+							ESTADO									
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" required name="estado" id="estado">
+								<?php 
+									require('connect_db.php');
+									$query = "select * from condicion ";
+									$result= mysqli_query($mysqli,"select * from condicion");
+									while ($event= mysqli_fetch_array($result)){ ?>
+
+								<option><?php echo $event['condicion']; }?></option>								
+			 				</select>
+						</div>
+							CODIGO PRODUCTO
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="codprod" required name="codprod" placeholder="Codigo de barras del producto" maxlength="25" onpaste="return false" onkeypress="return lyn(event)">
+						</div>
+							CODIGO 360°
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="f360"  name="f360" placeholder="Codigo proporcionado por CLUSTORE dependiendo del paquete contratado" maxlength="25" onpaste="return false" onkeypress="return lyn(event)">
+						</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="modificar">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- <link  type="text/js" src="vendor/bootstrap/js/bootstrap.min.js"> -->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/bootstrap/js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <link  type="text/js" href="vendor/jquery/jquery-3.2.1.min.js"> -->
+  <script src="./js/client.js"></script>
+  <script type="text/javascript">
+
+//     $('#exampleModal').on('show.bs.modal', function (event) {
+//       console.log('hola jquery');
+//   var button = $(event.relatedTarget); // Button that triggered the modal
+//   var recipient = button.data('whatever'); // Extract info from data-* attributes
+//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//   var modal = $(this);
+//   modal.find('.modal-title').text('New message to ' + recipient);
+//   modal.find('.modal-body input').val(recipient);
+// })
+  </script>
 </body>
+
 </html>
 
 

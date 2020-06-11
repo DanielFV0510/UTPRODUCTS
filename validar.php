@@ -17,6 +17,8 @@ $password=$_POST['password'];
 			$_SESSION['Tipo_usuario']=$f['Tipo_usuario'];
 			$_SESSION['nomb_proyect']=$f['nomb_proyect'];
 			$_SESSION['condicion']=$f['condicion'];
+			$_SESSION['tipopack']=$f['tipopack'];
+			$_SESSION['condicion']=$f['condicion'];
 			//echo $_SESSION['Tipo_usuario'];
 			//header("Location: paginaprincipaladmin.php");
 			

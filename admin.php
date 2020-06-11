@@ -4,8 +4,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
-
 <!--se modiif=-->
   <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -426,7 +424,6 @@ if($_SESSION['Tipo_usuario']=='Cliente')
       </div>
     </div>
   </section>
-
 
 
 </body>

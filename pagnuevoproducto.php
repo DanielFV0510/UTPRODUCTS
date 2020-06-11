@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php	session_start();
+	include_once 'includes/productos.php';
+				$productos = new Productos(null,null,null);	
+              $limiteAlcanzado=$productos->verificarLimite();
+			  if($limiteAlcanzado===true){
+				header ("location:client.php");
+			  }
+			  
+          ?> 
 <html lang="en">
 <head>
 	<title>Nuevo Producto</title>
@@ -197,8 +206,6 @@
 						</div>
 
 
-
-				
 
 						<div class="w-size25">
 							<!-- Button -->
